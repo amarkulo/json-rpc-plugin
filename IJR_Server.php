@@ -44,11 +44,12 @@ class IJR_Server {
     function serve($data = false)
     {
         if (!$data) {
-            global $HTTP_RAW_POST_DATA;
-            if (!$HTTP_RAW_POST_DATA) {
+            global $postdata;
+            $postdata = file_get_contents("php://input");
+            if (!$postdata) {
                die('JSON-RPC server accepts POST requests only.');
             }
-            $data = $HTTP_RAW_POST_DATA;
+            $data = $postdata;
         }
 
         $data = json_decode($data, true);

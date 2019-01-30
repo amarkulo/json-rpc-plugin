@@ -12,7 +12,7 @@
 if(!defined('DOKU_INC')) define('DOKU_INC',dirname(__FILE__).'/../../../');
 
 // fix when '<?xml' isn't on the very first line
-if(isset($HTTP_RAW_POST_DATA)) $HTTP_RAW_POST_DATA = trim($HTTP_RAW_POST_DATA);
+if(isset($postdata)) $postdata = trim($postdata);
 
 /**
  * Increased whenever the API is changed
